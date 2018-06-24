@@ -4,7 +4,7 @@
     
     <h1>
       
-      Administrar Habitacion
+      Administrar habitaciones
     
     </h1>
 
@@ -12,7 +12,7 @@
       
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
       
-      <li class="active">Administrar habitacion</li>
+      <li class="active">Administrar habitaciones</li>
     
     </ol>
 
@@ -26,7 +26,7 @@
   
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarHabitacion">
           
-          Agregar Habitacion
+          Agregar habitacion
 
         </button>
 
@@ -34,105 +34,46 @@
 
       <div class="box-body">
         
-       <table class="table table-bordered table-striped dt-responsive tablas">
+       <table class="table table-bordered table-striped dt-responsive tablaHabitaciones">
          
         <thead>
          
          <tr>
-           
+          
            <th style="width:10px">#</th>
-           <th>Habitacion</th>
+           <th>N°habitacion</th>
+           <th>Categoria</th>
+           <th>Nivel</th>
+           <th>Detalle</th>
+           <th>Precio</th>
            <th>Acciones</th>
 
          </tr> 
 
         </thead>
 
-        <tbody>
-          
-          <tr>
-
-            <td>1</td>
-
-            <td>EQUIPOS ELECTROMECÁNICOS</td>
-
-            <td>
-
-              <div class="btn-group">
-                  
-                <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-
-                <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-
-              </div>  
-
-            </td>
-
-          </tr>
-
-          <tr>
-
-            <td>1</td>
-
-            <td>EQUIPOS ELECTROMECÁNICOS</td>
-            
-            <td>
-
-              <div class="btn-group">
-                  
-                <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-
-                <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-
-              </div>  
-
-            </td>
-
-          </tr>
-
-          <tr>
-
-            <td>1</td>
-
-            <td>EQUIPOS ELECTROMECÁNICOS</td>
-            
-            <td>
-
-              <div class="btn-group">
-                  
-                <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-
-                <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-
-              </div>  
-
-            </td>
-
-          </tr>
-
-        </tbody>
+        
 
        </table>
 
-      </div>
+      </div>  
 
     </div>
 
   </section>
 
 </div>
-
 <!--=====================================
 MODAL AGREGAR USUARIO
 ======================================-->
 
-<div id="modalAgregarCategoria" class="modal fade" role="dialog">
+<div id="modalAgregarHabitacion" class="modal fade" role="dialog">
   
   <div class="modal-dialog">
 
     <div class="modal-content">
 
-      <form role="form" method="post">
+      <form role="form" method="post" enctype="multipart/form-data">
 
         <!--=====================================
         CABEZA DEL MODAL
@@ -142,7 +83,7 @@ MODAL AGREGAR USUARIO
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar categoría</h4>
+          <h4 class="modal-title">Agregar habitacion</h4>
 
         </div>
 
@@ -160,14 +101,106 @@ MODAL AGREGAR USUARIO
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevaCategoria" placeholder="Ingresar categoría" required>
+                <input type="number" class="form-control input-lg" name="nuevoNumeroHabitacion" placeholder="Ingresar el numero de habitacion" required>
 
               </div>
 
             </div>
-  
+
+            <!-- ENTRADA PARA SELECCIONAR SU PERFIL -->
+
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-users"></i></span> 
+
+                <select class="form-control input-lg" id="nuevaCategoria" name="nuevaCategoria" required>
+                  
+                  <option value="">Selecionar Categoria</option>
+
+                  <?php
+                    $item = null;
+                    $valor = null;
+
+                    $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+
+                    foreach ($categorias as $key => $value) {
+                      
+                      echo '<option value="'.$value["categoria"].'">'.$value["categoria"].'</option>';
+                    }
+                  ?>
+                </select>
+
+              </div>
+
+            </div>
+            <!-- ENTRADA PARA SELECCIONAR SU PERFIL -->
+
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-users"></i></span> 
+
+                <select class="form-control input-lg" id="nuevoPiso" name="nuevoPiso" required>
+                  
+                  <option value="">Selecionar Nivel</option>
+
+                  <?php
+                    $item = null;
+                    $valor = null;
+
+                    $pisos = ControladorPiso::ctrMostrarPisos($item, $valor);
+
+                    foreach ($pisos as $key => $value) {
+
+                      echo '<option value="'.$value["nro"].'">'.$value["nro"].'</option>';
+                    }
+                  ?>
+
+                </select>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL USUARIO -->
+
+             <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="nuevoDetalle" placeholder="Ingresar Detalle" required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA LA CONTRASEÑA -->
+
+             <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span> 
+
+                <input type="number" class="form-control input-lg" name="nuevoPrecio" placeholder="Ingresar precio" required>
+
+              </div>
+
+            </div>
+
+            
+
+            <!-- ENTRADA PARA SUBIR FOTO -->
+
+            
+
           </div>
 
         </div>
@@ -180,11 +213,17 @@ MODAL AGREGAR USUARIO
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar categoría</button>
+          <button type="submit" class="btn btn-primary">Guardar usuario</button>
 
         </div>
 
       </form>
+
+        <?php
+
+          $crearHabitacion = new ControladorHabitaciones();
+          $crearHabitacion -> ctrCrearHabitacion();
+        ?>
 
     </div>
 

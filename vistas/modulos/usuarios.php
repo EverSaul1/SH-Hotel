@@ -210,9 +210,9 @@ MODAL AGREGAR USUARIO
 
                   <option value="Administrador">Administrador</option>
 
-                  <option value="Especial">Especial</option>
+                  <option value="Secretari@">Secretari@</option>
 
-                  <option value="Vendedor">Vendedor</option>
+                  <option value="Limpieza">Limpieza</option>
 
                 </select>
 
@@ -355,9 +355,9 @@ MODAL EDITAR USUARIO
 
                   <option value="Administrador">Administrador</option>
 
-                  <option value="Especial">Especial</option>
+                  <option value="Secretari@">Secretari@</option>
 
-                  <option value="Vendedor">Vendedor</option>
+                  <option value="Limpieza">Limpieza</option>
 
                 </select>
 

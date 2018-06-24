@@ -4,7 +4,7 @@
     
     <h1>
       
-      Administrar categorías
+      Administrar empleados
     
     </h1>
 
@@ -12,7 +12,7 @@
       
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
       
-      <li class="active">Administrar categorías</li>
+      <li class="active">Administrar empleados</li>
     
     </ol>
 
@@ -24,9 +24,9 @@
 
       <div class="box-header with-border">
   
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCategoria">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarEmpleado">
           
-          Agregar categoría
+          Agregar empleado
 
         </button>
 
@@ -41,7 +41,10 @@
          <tr>
            
            <th style="width:10px">#</th>
-           <th>Categoria</th>
+           <th>Nombre</th>
+           <th>Dni</th>
+           <th>Celular</th>
+           <th>Procedencia</th>
            <th>Acciones</th>
 
          </tr> 
@@ -55,15 +58,15 @@
           $item = null;
           $valor = null;
 
-          $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+          $empleados = ControladorEmpleados::ctrMostrarEmpleados($item, $valor);
 
-          foreach ($categorias as $key => $value) {
+          foreach ($empleados as $key => $value) {
            
             echo ' <tr>
 
                     <td>'.($key+1).'</td>
 
-                    <td class="text-uppercase">'.$value["categoria"].'</td>
+                    <td class="text-uppercase">'.$value["empleado"].'</td>
 
                     <td>
 
@@ -86,7 +89,7 @@
 
        </table>
 
-      </div>  
+      </div>
 
     </div>
 
