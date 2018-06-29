@@ -3,6 +3,7 @@
 	class ControladorHabitaciones {
 
 		static public function ctrMostrarHabitaciones($item, $valor){
+			
 			$tabla = "habitaciones";
 
 			$respuesta = ModeloHabitaciones::mdlMostrarHabitaciones($tabla, $item, $valor);
@@ -19,11 +20,12 @@
 					preg_match('/^[0-9 ]+$/', $_POST["nuevoPrecio"])){
 
 					$tabla = "habitaciones";
-					$datos = array("nrohabitacion" => $_POST["nuevoNumeroHabitacion"],
-						"id_categoria" => $_POST["nuevaCategoria"],
-						"id_piso" => $_POST["nuevoPiso"],
-						"detalle" => $_POST["nuevoDetalle"],
-						"precio" => $_POST["nuevoPrecio"],);
+
+					$datos = array("id_categoria" => $_POST["nuevaCategoria"],
+									"id_piso" => $_POST["nuevoPiso"],
+									"nrohabitacion" => $_POST["nuevoNumeroHabitacion"],
+									"detalle" => $_POST["nuevoDetalle"],
+									"precio" => $_POST["nuevoPrecio"]);
 
 					$respuesta = ModeloHabitaciones::mdlIngresarHabitaciones($tabla, $datos);
 
@@ -45,7 +47,7 @@
 								})
 
 					</script>';
-
+				}
 
 				}else{
 					echo'<script>
@@ -66,7 +68,7 @@
 			  	</script>';
 
 				}
-				}
+				
 			}
 		
 	}

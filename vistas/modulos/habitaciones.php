@@ -41,7 +41,7 @@
          <tr>
           
            <th style="width:10px">#</th>
-           <th>N°habitacion</th>
+           <th style="width:25px">N°habitacion</th>
            <th>Categoria</th>
            <th>Nivel</th>
            <th>Detalle</th>
@@ -117,7 +117,7 @@ MODAL AGREGAR USUARIO
               
                 <span class="input-group-addon"><i class="fa fa-users"></i></span> 
 
-                <select class="form-control input-lg" id="nuevaCategoria" name="nuevaCategoria" required>
+                <select class="form-control input-lg"  name="nuevaCategoria" required>
                   
                   <option value="">Selecionar Categoria</option>
 
@@ -129,9 +129,10 @@ MODAL AGREGAR USUARIO
 
                     foreach ($categorias as $key => $value) {
                       
-                      echo '<option value="'.$value["categoria"].'">'.$value["categoria"].'</option>';
+                      echo '<option value="'.$value["id"].'">'.$value["categoria"].'</option>';
                     }
                   ?>
+
                 </select>
 
               </div>
@@ -145,11 +146,12 @@ MODAL AGREGAR USUARIO
               
                 <span class="input-group-addon"><i class="fa fa-users"></i></span> 
 
-                <select class="form-control input-lg" id="nuevoPiso" name="nuevoPiso" required>
+                <select class="form-control input-lg"  name="nuevoPiso" required>
                   
                   <option value="">Selecionar Nivel</option>
 
                   <?php
+
                     $item = null;
                     $valor = null;
 
@@ -157,7 +159,7 @@ MODAL AGREGAR USUARIO
 
                     foreach ($pisos as $key => $value) {
 
-                      echo '<option value="'.$value["nro"].'">'.$value["nro"].'</option>';
+                      echo '<option value="'.$value["id"].'">'.$value["nro"].'</option>';
                     }
                   ?>
 
@@ -230,5 +232,151 @@ MODAL AGREGAR USUARIO
   </div>
 
 </div>
+
+<!--=====================================
+MODAL editar habitacion
+======================================-->
+
+<div id="modalEditarHabitacion" class="modal fade" role="dialog">
+  
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <form role="form" method="post" enctype="multipart/form-data">
+
+        <!--=====================================
+        CABEZA DEL MODAL
+        ======================================-->
+
+        <div class="modal-header" style="background:#3c8dbc; color:white">
+
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+          <h4 class="modal-title">Editar habitacion</h4>
+
+        </div>
+
+        <!--=====================================
+        CUERPO DEL MODAL
+        ======================================-->
+
+        <div class="modal-body">
+
+          <div class="box-body">
+
+            <!-- ENTRADA PARA EL NOMBRE -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+
+                <input type="number" class="form-control input-lg" name="editarNumeroHabitacion" name="editarNumeroHabitacion"  required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA SELECCIONAR SU PERFIL -->
+
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-users"></i></span> 
+
+                <select class="form-control input-lg"  id="editarCategoria" name="editarCategoria" required>
+                  
+                  <option id="editarCategoria"></option>
+
+                 
+
+                </select>
+
+              </div>
+
+            </div>
+            <!-- ENTRADA PARA SELECCIONAR SU PERFIL -->
+
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-users"></i></span> 
+
+                <select class="form-control input-lg" id="editarPiso" name="editarPiso" required>
+                  
+                  <option id="editarPiso"></option>
+
+                 
+
+                </select>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA EL USUARIO -->
+
+             <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
+
+                <input type="text" class="form-control input-lg" id="editarDetalle" name="editarDetalle"  required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA LA CONTRASEÑA -->
+
+             <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span> 
+
+                <input type="number" class="form-control input-lg" id="editarPrecio" name="editarPrecio"  required>
+
+              </div>
+
+            </div>
+
+            
+
+            <!-- ENTRADA PARA SUBIR FOTO -->
+
+            
+
+          </div>
+
+        </div>
+
+        <!--=====================================
+        PIE DEL MODAL
+        ======================================-->
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+          <button type="submit" class="btn btn-primary">Guardar usuario</button>
+
+        </div>
+
+      </form>
+
+       
+
+    </div>
+
+  </div>
+
+</div>
+
 
 

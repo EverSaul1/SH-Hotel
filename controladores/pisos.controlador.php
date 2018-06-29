@@ -91,8 +91,8 @@ class ControladorPiso{
 
 				$tabla = "pisos";
 
-				$datos = array("nro"=>$_POST["editarPiso"],
-							   "id"=>$_POST["idPiso"]);
+				$datos = array("nro" => $_POST["editarPiso"],
+							   "id" => $_POST["idPiso"]);
 
 				$respuesta = ModeloPisos::mdlEditarPiso($tabla, $datos);
 

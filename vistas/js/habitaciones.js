@@ -5,7 +5,7 @@ var table = $(".tablaHabitaciones").DataTable({
 
 		"targets": -1,
 		"data": null,
-		"defaultContent": '<div class="btn-group">  <button class="btn btn-warning btnEditarHabitacion " idHabitacion><i class="fa fa-pencil"></i></button> <button class="btn btn-danger btnEliminarHabitacion" idHabitacion><i class="fa fa-times"></i></button></div>'
+		"defaultContent": '<div class="btn-group">  <button class="btn btn-warning btnEditarHabitacion" idHabitacion data-toggle= "modal" data-target = "#modalEditarHabitacion"><i class="fa fa-pencil"></i></button> <button class="btn btn-danger btnEliminarHabitacion" idHabitacion><i class="fa fa-times"></i></button></div>'
 	}
 
 	],
@@ -49,3 +49,50 @@ var table = $(".tablaHabitaciones").DataTable({
         $(this).attr("idHabitacion", data[7])
  } );
 
+
+$(".tablaHabitaciones tbody").on("click", "button.btnEditarHabitacion", function(){
+
+	var idHabitacion = $(this).attr("idHabitacion");
+	
+	var datos = new FormData();
+
+	datos.append("idHabitacion", idHabitacion);
+
+	console.log("idHabitacion", idHabitacion);
+
+	$.ajax({
+		url: "ajax/habitaciones.ajax.php",
+		method: "POST",
+      	data: datos,
+      	cache: false,
+     	contentType: false,
+     	processData: false,
+     	dataType:"json",
+     	success: function(respuesta){
+
+     		var datosCategoria = new FormData();
+     		datosCategoria.append("idcategoria",respuesta["id_categoria"]);
+
+			     $.ajax({
+					url: "ajax/categorias.ajax.php",
+					method: "POST",
+			      	data: datosCategoria,
+			      	cache: false,
+			     	contentType: false,
+			     	processData: false,
+			     	dataType:"json",
+			     	success: function(respuesta){
+
+			     		$("#editarCategoria").val(respuesta["id"]);
+			     		$("#editarCategoria").html(respuesta["categoria"]);
+
+				     	}
+
+					})
+
+     		
+     	}
+
+	})
+
+})

@@ -29,7 +29,7 @@
 
 		static public function mdlIngresarHabitaciones($tabla, $datos){
 
-			$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(id_categoria,id_piso,nrohabitacion,detalle,precio) VALUES (:id_categoria, :id_piso, :nrohabitacion, :detalle, :precio)");
+			$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(id_categoria, id_piso, nrohabitacion, detalle, precio) VALUES (:id_categoria, :id_piso, :nrohabitacion, :detalle, :precio)");
 
 			$stmt ->bindParam(":id_categoria", $datos["id_categoria"], PDO::PARAM_INT);
 			$stmt ->bindParam(":id_piso", $datos["id_piso"], PDO::PARAM_INT);
@@ -37,18 +37,20 @@
 			$stmt ->bindParam(":detalle", $datos["detalle"], PDO::PARAM_STR);
 			$stmt ->bindParam(":precio", $datos["precio"], PDO::PARAM_STR);
 
+			
+
 			if($stmt->execute()){
 
 			return "ok";
 
-		}else{
+			}else{
 
 			return "error";
 		
-		}
+			}
 
-		$stmt->close();
-		$stmt = null;
+				$stmt->close();
+				$stmt = null;
 
 
 
