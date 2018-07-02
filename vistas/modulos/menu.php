@@ -138,6 +138,16 @@
 						</a>
 
 					</li>
+					<li>
+
+						<a href="servicios">
+							
+							<i class="fa fa-qrcode"></i>
+							<span>Servicios</span>
+
+						</a>
+
+					</li>
 
 					<li>
 
