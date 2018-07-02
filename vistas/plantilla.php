@@ -71,6 +71,11 @@ session_start();
   <!-- By default SweetAlert2 doesn't support IE. To enable IE 11 support, include Promise polyfill:-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 
+  <!-- InputMask -->
+  <script src="vistas/plugins/input-mask/jquery.inputmask.js"></script>
+  <script src="vistas/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+  <script src="vistas/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+
 </head>
 
 <!--=====================================
@@ -108,7 +113,8 @@ CUERPO DOCUMENTO
          $_GET["ruta"] == "categorias" ||
          $_GET["ruta"] == "habitaciones" ||
          $_GET["ruta"] == "pisos" ||
-         
+         $_GET["ruta"] == "crear-servicio" ||
+         $_GET["ruta"] == "adm-habitaciones" ||
          $_GET["ruta"] == "productos" ||
          $_GET["ruta"] == "clientes" ||
          $_GET["ruta"] == "ventas" ||
@@ -152,6 +158,7 @@ CUERPO DOCUMENTO
 <script src="vistas/js/categorias.js"></script>
 <script src="vistas/js/pisos.js"></script>
 <script src="vistas/js/habitaciones.js"></script>
+<script src="vistas/js/clientes.js"></script>
 
 </body>
 </html>

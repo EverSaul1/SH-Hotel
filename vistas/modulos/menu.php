@@ -4,7 +4,10 @@
 
 		<ul class="sidebar-menu">
 
-			<li class="active">
+		<?php
+		if($_SESSION["perfil"] =="Administrador"){
+
+			echo'<li class="active">
 
 				<a href="inicio">
 
@@ -14,7 +17,7 @@
 				</a>
 
 			</li>
-			<li>
+					<li>
 
 						<a href="usuarios">
 
@@ -23,20 +26,69 @@
 
 						</a>
 
+					</li>';
+				}
+
+				if($_SESSION["perfil"] =="Administrador" || $_SESSION["perfil"] =="Secretari@"){
+
+					echo'<li class="treeview">
+
+				<a href="#">
+
+					<i class="fa fa-folder"></i>
+					
+					<span>Administrar</span>
+					
+					<span class="pull-right-container">
+					
+						<i class="fa fa-angle-left pull-right"></i>
+
+					</span>
+
+				</a>
+
+				<ul class="treeview-menu">
+				<li>
+
+					<a href="adm-habitaciones">
+
+							<i class="fa fa-users"></i>
+							<span>Administrar habitacion</span>
+
+						</a>
+
 					</li>
+
 			<li>
 
-				<a href="Reservas">
+				<a href="crear-servicio">
 
 					<i class="fa fa-archive"></i>
-					<span>Reservas</span>
+					<span>Crear Servicio</span>
 
 				</a>
 
 			</li>
 
+			<li>
+
+					<a href="clientes">
+
+							<i class="fa fa-users"></i>
+							<span>Clientes</span>
+
+						</a>
+
+					</li>
+
+				<li>
+			</ul>
+			</li>';
+		}	
+
+		if($_SESSION["perfil"] =="Administrador"){
 			
-			<li class="treeview">
+			echo'<li class="treeview">
 
 				<a href="#">
 
@@ -53,18 +105,7 @@
 				</a>
 
 				<ul class="treeview-menu">
-				<li>
-
-					<a href="clientes">
-
-							<i class="fa fa-users"></i>
-							<span>Clientes</span>
-
-						</a>
-
-					</li>
-
-				<li>
+				
 
 						<a href="productos">
 
@@ -107,7 +148,9 @@
 
 						</a>
 
-					</li>
+					</li>';
+				}
+				?>
 					</ul>
 
 

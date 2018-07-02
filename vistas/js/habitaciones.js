@@ -96,3 +96,4 @@ $(".tablaHabitaciones tbody").on("click", "button.btnEditarHabitacion", function
 	})
 
 })
+
